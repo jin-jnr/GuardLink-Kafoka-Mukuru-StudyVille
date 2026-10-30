@@ -1,0 +1,194 @@
+/* House style - main #003366 ground #ffffff ink #000000 accent #006699
+   headings: Georgia, serif   body: Verdana, sans-serif */
+
+/* 1 - House style */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #ffffff; /* ground */
+    color: #000000; /* ink */
+    line-height: 1.5;
+    font-family: Verdana, sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: Georgia, serif;
+    font-weight: 600;
+    color: #003366; /* main */
+}
+
+img, input, select, textarea {
+    max-width: 100%;
+    height: auto;
+}
+
+header {
+    background: #003366; /* main */
+}
+
+header h1, header p {
+    color: #ffffff; /* readable on main */
+}
+
+nav {
+    background: #000000; /* ink */
+}
+
+nav a {
+    color: #ffffff; /* ground */
+    text-decoration: none;
+}
+
+nav a:hover, nav a:focus {
+    text-decoration: underline;
+}
+
+a {
+    color: #006699; /* accent */
+}
+
+header, main, aside, footer {
+    padding: 1rem;
+}
+
+footer {
+    border-top: 3px solid #006699; /* accent */
+}
+
+/* 2 - Layout */
+nav ul {
+    flex-wrap: wrap;
+    display: flex;
+    gap: 0.25rem 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0.75rem 1rem;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+}
+
+body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 18rem;
+    grid-template-areas:
+    "header header"
+    "nav nav"
+    "main aside"
+    "footer footer";
+}
+
+header { grid-area: header; }
+nav    { grid-area: nav; }
+main   { grid-area: main; }
+aside  { grid-area: aside; }
+footer { grid-area: footer; }
+
+main, aside {
+    overflow-wrap: anywhere;
+}
+
+.logo {
+    width: 7%;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.card {
+    flex: 1 1 14rem;
+    border: 1px solid #003366;
+    border-top: 4px solid #006699;
+    padding: 1rem;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.table-scroll {
+    overflow-x: auto;
+}
+
+/* 3 - Forms, tables and page-specific rules */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #003366;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+}
+
+th {
+    background: #003366;
+    color: #ffffff;
+}
+
+form br {
+    display: none;
+}
+
+form label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+input, select, textarea {
+    display: block;
+    width: 100%;
+    max-width: 28rem;
+    padding: 0.5rem;
+    border: 1px solid #003366;
+    font: inherit;
+}
+
+button {
+    background-color: #003366;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-family: Verdana, sans-serif;
+}
+
+button:hover, button:focus {
+    background-color: #006699;
+}
+
+/* 5 - Phone - keep this last */
+@media (max-width: 700px) {
+    body {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "aside"
+        "footer";
+    }
+
+    nav {
+        position: static;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    .logo {
+        width: 2.5rem;
+    }
+}
